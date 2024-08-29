@@ -1,16 +1,18 @@
-package co.edu.escuelaing;
+package co.edu.escuelaing.SimpleWebServer;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * The ServerWeb class is a simple framework for managing web services and static files.
+ * The WebServer class is a simple framework for managing web services and static files.
  * It allows developers to define RESTful services using lambda expressions, extract query parameters
  * from HTTP requests, and specify the location of static files to be served by the server.
  */
 public class WebServer {
     
-    public static Map<String, Service> services = new HashMap<>();
+    // ConcurrentHashMap is used for thread-safe access to services.
+    public static Map<String, Service> services = new ConcurrentHashMap<>();
     public static String staticFilesLocation = "";
 
     /**
@@ -20,7 +22,11 @@ public class WebServer {
      * @param s   The service, defined as a lambda expression implementing the Service interface.
      */
     public static void get(String url, Service s) {
-        services.put(url, s);
+        if (url != null && s != null) {
+            services.put(url, s);
+        } else {
+            throw new IllegalArgumentException("URL and Service must not be null");
+        }
     }
 
     /**
@@ -31,6 +37,10 @@ public class WebServer {
      * @return The value of the specified query parameter, or an empty string if the parameter is not found.
      */
     public static String queryParams(String request, String param) {
+        if (request == null || param == null) {
+            throw new IllegalArgumentException("Request and parameter must not be null");
+        }
+        
         if (request.contains("?")) {
             String[] parts = request.split("\\?");
             if (parts.length > 1) {
@@ -38,8 +48,8 @@ public class WebServer {
                 String[] params = queryString.split("&");
                 for (String p : params) {
                     String[] keyValue = p.split("=");
-                    if (keyValue[0].equals(param)) {
-                        return keyValue.length > 1 ? keyValue[1] : "";
+                    if (keyValue.length > 1 && keyValue[0].equals(param)) {
+                        return keyValue[1];
                     }
                 }
             }
@@ -54,6 +64,10 @@ public class WebServer {
      * @param location The path to the directory containing static files.
      */
     public static void staticfiles(String location) {
-        staticFilesLocation = location;
+        if (location != null && !location.trim().isEmpty()) {
+            staticFilesLocation = location;
+        } else {
+            throw new IllegalArgumentException("Static files location must not be null or empty");
+        }
     }
 }

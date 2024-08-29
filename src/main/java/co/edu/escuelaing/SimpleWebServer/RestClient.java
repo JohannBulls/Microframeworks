@@ -1,4 +1,4 @@
-package co.edu.escuelaing;
+package co.edu.escuelaing.SimpleWebServer;
 
 import java.net.URI;
 import java.net.http.HttpClient;

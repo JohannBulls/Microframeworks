@@ -13,6 +13,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import co.edu.escuelaing.SimpleWebServer.RestClient;
+
 /**
  * Unit tests for the {@link RestClient} class.
  * These tests verify the behavior of the RestClient when sending asynchronous HTTP GET requests.

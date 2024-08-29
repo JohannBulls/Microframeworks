@@ -1,5 +1,5 @@
-co\edu\escuelaing\Service.class
-co\edu\escuelaing\ClientHandler.class
-co\edu\escuelaing\SimpleWebServer.class
-co\edu\escuelaing\WebServer.class
-co\edu\escuelaing\RestClient.class
+co\edu\escuelaing\SimpleWebServer\SimpleWebServer.class
+co\edu\escuelaing\SimpleWebServer\RestClient.class
+co\edu\escuelaing\SimpleWebServer\Service.class
+co\edu\escuelaing\SimpleWebServer\ClientHandler.class
+co\edu\escuelaing\SimpleWebServer\WebServer.class

@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.net.Socket;
 import org.junit.jupiter.api.Test;
 
+import co.edu.escuelaing.SimpleWebServer.SimpleWebServer;
+
 /**
  * Unit tests for the {@link SimpleWebServer} class.
  * These tests verify that the SimpleWebServer can start and accept connections.

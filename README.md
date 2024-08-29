@@ -1,8 +1,10 @@
-# Microframeworks
+## Microframeworks
 
-SimpleWebServer is a simple Java-based web server implementation that handles both HTTP GET and POST requests. The server serves static files and supports asynchronous communication with REST services.
+A multithreaded web server in Java that handles multiple simultaneous connections using a fixed thread pool. It uses a custom microframework to simplify the development of RESTful services and static file management. The server responds to HTTP GET and POST requests, serves static files from a predefined directory, and handles custom RESTful services. It includes robust error handling and supports basic HTTP response codes. It is ideal for learning about concurrent programming, microframework design, and basic web server functionality in Java.
 
-## Key Features
+SimpleWebServer is a straightforward Java-based web server implementation that handles both HTTP GET and POST requests. The server serves static files and supports asynchronous communication with REST services.
+
+### Key Features
 
 - **GET and POST Request Handling**: Supports HTTP GET requests to serve static files and POST requests to receive and display data.
 - **Static File Support**: Serves HTML, CSS, JS, and image files from a specific directory.
@@ -25,6 +27,31 @@ SimpleWebServer is a simple Java-based web server implementation that handles bo
 3. **RestClient.java**:
    - Client for making asynchronous HTTP GET requests.
    - Uses `HttpClient` to send requests and handle responses asynchronously.
+
+---
+
+### Supporting Classes
+
+4. **Service.java**:
+   - **Description**: 
+     The `Service` interface provides a contract for services that process requests and generate responses. Implementations of this interface should define how to handle requests and generate corresponding responses.
+   - **Methods**:
+     - `getValue(String request, String response)`: Processes the given request and response, and returns a string value based on the processing.
+   - **Usage**:
+     This interface is intended to be implemented by classes that define specific services. For example, a service could process an HTTP GET request and return the result as a string.
+
+5. **WebServer.java**:
+   - **Description**: 
+     The `WebServer` class is a simple framework for managing web services and static files. It allows developers to define RESTful services using lambda expressions, extract query parameters from HTTP requests, and specify the location of static files to be served by the server.
+   - **Attributes**:
+     - `services`: A `ConcurrentHashMap` that stores the mapping of URL paths to `Service` instances, ensuring thread-safe access.
+     - `staticFilesLocation`: A `String` that stores the path to the directory containing static files.
+   - **Methods**:
+     - `get(String url, Service s)`: Registers a new service to a specific URL path.
+     - `queryParams(String request, String param)`: Extracts the value of a specific query parameter from a given HTTP request.
+     - `staticfiles(String location)`: Sets the location of the static files directory.
+   - **Usage**:
+     This class acts as the backbone of the web server, allowing for easy registration of services and management of static files. It's designed to simplify the development of web services by abstracting common tasks like request handling and query parameter extraction.
 
 ### Unit Tests
 
@@ -106,6 +133,8 @@ To run unit tests, ensure you have JUnit and Mockito set up in your project. The
    ```bash
    mvn test
    ```
+
+   ![alt text](images/test.png)
 
 ## Technologies Used
 
