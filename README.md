@@ -28,10 +28,6 @@ SimpleWebServer is a straightforward Java-based web server implementation that h
    - Client for making asynchronous HTTP GET requests.
    - Uses `HttpClient` to send requests and handle responses asynchronously.
 
----
-
-### Supporting Classes
-
 4. **Service.java**:
    - **Description**: 
      The `Service` interface provides a contract for services that process requests and generate responses. Implementations of this interface should define how to handle requests and generate corresponding responses.
