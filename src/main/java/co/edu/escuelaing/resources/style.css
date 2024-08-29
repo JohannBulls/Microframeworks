@@ -1,0 +1,17 @@
+body {
+    background-color: #f0f8ff; /* Soft light blue background */
+}
+.container {
+    margin-top: 20px;
+}
+.card {
+    background-color: #ffffff; /* White background for the cards */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.results {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #ffffff; /* White background for the results */
+}

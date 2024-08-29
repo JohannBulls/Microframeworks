@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Web Server</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Simple Web Server</h1>
+        <div class="row">
+            <!-- Forms -->
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">GET Form</h5>
+                        <form action="/hello">
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" name="name" class="form-control" value="John">
+                            </div>
+                            <button type="button" class="btn btn-primary" onclick="loadGetMsg()">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">POST Form</h5>
+                        <form action="/hellopost">
+                            <div class="form-group">
+                                <label for="postname">Name:</label>
+                                <input type="text" id="postname" name="name" class="form-control" value="John">
+                            </div>
+                            <button type="button" class="btn btn-primary" onclick="loadPostMsg(postname)">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div class="col-md-6">
+                <div class="results">
+                    <div id="getrespmsg"></div>
+                    <div id="postrespmsg"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
